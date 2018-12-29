@@ -10,13 +10,13 @@ The goal of this project is to show that even the beginner programmer, knowing t
 
 ## About the programm
 
-Recently I have watched the video of one YouTube  video creator @overbafer1 (not advertising). In his last video he was talking about the [LightShot](https://prnt.sc/) screen capture tool and their attitude towards the people's privacy in terms of the ‘Print-Screen’ images that were uploaded on their service.
+In this project I would like to talk about the [LightShot](https://prnt.sc/) screen capture tool and their attitude towards the people's privacy in terms of the ‘Print-Screen’ images that were uploaded on their service.
 
-The main idea is that by modifying the last 3 elements within the image link (after the letter ‘q’):
+The main idea is that by modification of the last 3 elements within the image link (after the letter ‘q’):
 
 > https://prnt.sc/m0q111 (in stead of ‘111’ there could be any combination of the digits and Latin letters e.g ‘a56’ or ‘j9d’ etc.)
 
-Such link modification allows you to see not only yours, but also every other screen shots of other users that had uploaded them.
+Allows you to see not only yours, but also every other screen shots of other users that had uploaded them.
 
 There are several GitHub repositories that have the tools for exploiting this feature of the ‘LightShot’ service for watching and downloading the pictures of the other users. However, the goal of creating my own repository with the similar program seemed feasible to me (even with my ‘best in the world’ programming skills).
 
