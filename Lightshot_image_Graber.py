@@ -4,7 +4,7 @@ import requests
 from random import randint
 
 ################INITIALIZING LOGO################
-print(' ')
+print(' ')     #figlet terminal command
 
 print('======================================================================')
 print(' _     _       _     _       _           _           ')
@@ -161,7 +161,12 @@ if int(grabbing_type) == 1:     #If the 'Dictionary' grab in chosen
 elif int(grabbing_type) == 2:     #If the 'Random-key' grab in chosen
     
     for i in range(int(img_amount)):
-        search_key = str(alp_list_init[randint(0, 25)]) + str(randint(10, 100))
+        
+        rand_chooser = randint(0, 1)
+        if rand_chooser == 0:
+            search_key = str(randint(10, 100)) + str(alp_list_init[randint(0, 25)])
+        elif rand_chooser == 1:
+            search_key = str(alp_list_init[randint(0, 25)]) + str(randint(10, 100))
         
         url_grab = 'https://prnt.sc/m0q' + str(search_key)     #Adding the 3 elements to the initial link
         if get_img_link(url_grab)[0] != '/':
