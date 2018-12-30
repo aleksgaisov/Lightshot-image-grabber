@@ -38,7 +38,7 @@ print(' ')
 
 while True:
     grabbing_type = input('--> ')    #The type of grabing algorithm
-    if grabbing_type.isalpha() == False:
+    if grabbing_type.isdigit() == True:
         if int(grabbing_type) <= 4:
             if int(grabbing_type) > 0:
                 break
@@ -62,7 +62,7 @@ print(' ')
 
 while True:
     img_amount = input('--> ')     #The quantity of images to grab
-    if img_amount.isalpha() == False:
+    if img_amount.isdigit() == True:
         if int(img_amount) <= 10000:
             if int(img_amount) > 0:
                 break
