@@ -4,23 +4,28 @@ import requests
 from random import randint
 
 ################INITIALIZING LOGO################
+
+R  = '\033[31m' # red
+G  = '\033[32m' # green
+W  = '\033[0m'  # white (normal)
+
 print(' ')     #figlet terminal command
 
-print('======================================================================')
-print(' _     _       _     _       _           _           ')
-print('| |   (_) __ _| |__ | |_ ___| |__   ___ | |_         ')
-print("| |   | |/ _` | '_ \| __/ __| '_ \ / _ \| __|  _____ ")
-print('| |___| | (_| | | | | |_\__ \ | | | (_) | |_  |_____|')
-print('|_____|_|\__, |_| |_|\__|___/_| |_|\___/ \__|        ')
+print(G+'======================================================================'+W)
+print(W+' _'+G+'     _       _     _       _           _           ')
+print(W+'| |'+G+'   (_) __ _| |__ | |_ ___| |__   ___ | |_         ')
+print(W+"| |"+G+"   | |/ _` | '_ \| __/ __| '_ \ / _ \| __|  _____ ")
+print(W+'| |___'+G+'| | (_| | | | | |_\__ \ | | | (_) | |_  |_____|')
+print(W+'|_____|'+G+'_|\__, |_| |_|\__|___/_| |_|\___/ \__|        ')
 print('         |___/                                       ')
-print(' _                               ____           _     _               ')
-print('(_)_ __ ___   __ _  __ _  ___   / ___|_ __ __ _| |__ | |__   ___ _ __ ')
-print("| | '_ ` _ \ / _` |/ _` |/ _ \ | |  _| '__/ _` | '_ \| '_ \ / _ \ '__|")
-print('| | | | | | | (_| | (_| |  __/ | |_| | | | (_| | |_) | |_) |  __/ |   ')
-print('|_|_| |_| |_|\__,_|\__, |\___|  \____|_|  \__,_|_.__/|_.__/ \___|_|   ')
+print(W+' _'+G+'                              '+W+' ____'+G+'           _     _               ')
+print(W+'(_)'+G+'_ __ ___   __ _  __ _  ___   '+W+'/ ___|'+G+'_ __ __ _| |__ | |__   ___ _ __ ')
+print(W+"| |"+G+" '_ ` _ \ / _` |/ _` |/ _ \ "+W+"| |  _|"+G+" '__/ _` | '_ \| '_ \ / _ \ '__|")
+print(W+'| |'+G+' | | | | | (_| | (_| |  __/ '+W+'| |_| |'+G+' | | (_| | |_) | |_) |  __/ |   ')
+print(W+'|_|'+G+'_| |_| |_|\__,_|\__, |\___|  '+W+'\____|'+G+'_|  \__,_|_.__/|_.__/ \___|_|   ')
 print('                   |___/                                              ')
 print(' ')
-print('======================================================================')
+print(G+'======================================================================'+W)
 
 print(' ')
 ##################################################
@@ -29,51 +34,51 @@ print(' ')
 print('-----------------------------------')
 print('CHOOSE THE GRABBING ATTACK:')
 print(' ')
-print('Dictionary(1)')
-print('Random-key(2)')
-print('Only-Numbers(3)')
-print('Only-Alphabet(4)')
+print(G+'Dictionary(1)'+W)
+print(G+'Random-key(2)'+W)
+print(G+'Only-Numbers(3)'+W)
+print(G+'Only-Alphabet(4)'+W)
 print('-----------------------------------')
 print(' ')
 
 while True:
-    grabbing_type = input('--> ')    #The type of grabing algorithm
+    grabbing_type = input(G+'-->'+W+' ')    #The type of grabing algorithm
     if grabbing_type.isdigit() == True:
         if int(grabbing_type) <= 4:
             if int(grabbing_type) > 0:
                 break
             else:
-                print('Please, enter the amount larger than 0:')
+                print(R+'Please, enter the amount larger than 0:'+W)
                 continue
         else:
-            print('Please, enter the correct digit:')
+            print(R+'Please, enter the correct digit:'+W)
             continue
     else:
-        print('Please, enter a digit:')
+        print(R+'Please, enter a digit:'+W)
         continue
 
 print(' ')
 
 print('-----------------------------------')
 print('SPECIFY THE NUMBER OF IMAGES:')
-print('(Choose the number less than 10000)')
+print(G+'(Choose the number less than 10000)'+W)
 print('-----------------------------------')
 print(' ')
 
 while True:
-    img_amount = input('--> ')     #The quantity of images to grab
+    img_amount = input(G+'-->'+W+' ')     #The quantity of images to grab
     if img_amount.isdigit() == True:
         if int(img_amount) <= 10000:
             if int(img_amount) > 0:
                 break
             else:
-                print('Please, enter the amount larger than 0:')
+                print(R+'Please, enter the amount larger than 0:'+W)
                 continue
         else:
-            print('Please, enter the amout less than 10000:')
+            print(R+'Please, enter the amout less than 10000:'+W)
             continue
     else:
-        print('Please, enter a digit:')
+        print(R+'Please, enter a digit:'+W)
         continue
 
 print(' ')
@@ -84,11 +89,11 @@ print('-----------------------------------')
 print(' ')
 
 while True:
-    save_path = input('--> ')    #The path to save the grabed images
+    save_path = input(G+'-->'+W+' ')    #The path to save the grabed images
     if save_path[0] == '/':
         break
     else:
-        print('Please, enter the correct path:')
+        print(R+'Please, enter the correct path:'+W)
         continue
     
 print(' ')
@@ -145,7 +150,7 @@ if int(grabbing_type) == 1:     #If the 'Dictionary' grab in chosen
             r = requests.get(get_img_link(url_grab))
             path = save_path    
             
-            print('Image found on:', url_grab)
+            print(G+'Image found on:'+W, url_grab)
             
             with open(path + str(i), 'wb') as f:     #Downloading the image
                 f.write(r.content) 
@@ -153,7 +158,7 @@ if int(grabbing_type) == 1:     #If the 'Dictionary' grab in chosen
             img_quantity = img_quantity + 1
             
         else:
-            print('No image on this link')
+            print(R+'No image on this link'+W)
             continue
     grab_keys.close()
     
@@ -173,7 +178,7 @@ elif int(grabbing_type) == 2:     #If the 'Random-key' grab in chosen
             r = requests.get(get_img_link(url_grab))
             path = save_path  
             
-            print('Image found on:', url_grab)
+            print(G+'Image found on:'+W, url_grab)
             
             with open(path + str(i), 'wb') as f:     #Downloading the image
                 f.write(r.content)
@@ -181,7 +186,7 @@ elif int(grabbing_type) == 2:     #If the 'Random-key' grab in chosen
             img_quantity = img_quantity + 1
                 
         else:
-            print('No image on this link')
+            print(R+'No image on this link'+W)
             continue
 
             
@@ -196,7 +201,7 @@ elif int(grabbing_type) == 3:     #If the 'Only-Numbers' grab in chosen
             r = requests.get(get_img_link(url_grab))
             path = save_path     
             
-            print('Image found on:', url_grab)
+            print(G+'Image found on:'+W, url_grab)
             
             with open(path + str(i), 'wb') as f:     #Downloading the image
                 f.write(r.content)
@@ -204,7 +209,7 @@ elif int(grabbing_type) == 3:     #If the 'Only-Numbers' grab in chosen
             img_quantity = img_quantity + 1
                 
         else:
-            print('No image on this link')
+            print(R+'No image on this link'+W)
             continue
             
     
@@ -219,7 +224,7 @@ elif int(grabbing_type) == 4:     #If the 'Only-Alphabet' grab in chosen
             r = requests.get(get_img_link(url_grab))
             path = save_path  
             
-            print('Image found on:', url_grab)
+            print(G+'Image found on:'+W, url_grab)
             
             with open(path + str(i), 'wb') as f:     #Downloading the image
                 f.write(r.content)
@@ -227,7 +232,7 @@ elif int(grabbing_type) == 4:     #If the 'Only-Alphabet' grab in chosen
             img_quantity = img_quantity + 1
                 
         else:
-            print('No image on this link')
+            print(R+'No image on this link'+W)
             continue
             
 print(' ')
@@ -235,17 +240,17 @@ print('==============================')     #Displaying the results of the grabb
 print('GRABBING PROCESS COMPLETED')
 print(' ')
 
-print('Images grabbed:', img_quantity)
+print(G+'Images grabbed:'+W, img_quantity)
 
 if int(grabbing_type) == 1:
-    print('Grabbing attack: Dictionary')
+    print(G+'Grabbing attack:'+R+' Dictionary')
 elif int(grabbing_type) == 2:
-    print('Grabbing attack: Random-key')
+    print(G+'Grabbing attack:'+R+' Random-key')
 elif int(grabbing_type) == 3:
-    print('Grabbing attack: Only-Numbers')
+    print(G+'Grabbing attack'+R+': Only-Numbers')
 elif int(grabbing_type) == 4:
-    print('Grabbing attack: Only-Alphabet')
+    print(G+'Grabbing attack:'+R+' Only-Alphabet')
     
-print('Saved:', save_path)
+print(G+'Saved:'+W,save_path)
 print('==============================')
 ##################################################    
